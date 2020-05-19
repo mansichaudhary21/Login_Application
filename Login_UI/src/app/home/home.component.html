@@ -1,0 +1,11 @@
+<h1>Welcome to home</h1>
+
+<form style="text-align: center;">
+<div *ngIf="customer!==null">
+    <h3>UserName is {{customer.name}} </h3>
+    <h3>LoginID is {{customer.id}}</h3>
+    <h3>Role is {{customer.role}}</h3>
+</div>
+</form>
+
+<router-outlet></router-outlet>

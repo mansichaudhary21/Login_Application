@@ -1,0 +1,38 @@
+<form  style="text-align: center;" #myForm="ngForm" (ngSubmit)="loginSubmit(myForm)" [formGroup]="loginForm">
+<div>
+<label>LoginId </label>
+    <input type="text" name ="id" ngModel formControlName ="id">
+    <div *ngIf="id.touched == true && id.invalid == true" 
+                     style="color: crimson;font-size: small;">
+                    <div *ngIf = "id.errors.required">
+                        ID is Required
+                    </div>
+                    <div *ngIf = "id.errors.minlength">
+                        Wrong ID
+                    </div>
+    </div>
+</div>
+   <div>
+    <label>Password</label>   
+    <input type="password" name ="password" ngModel formControlName ="password">
+    <div *ngIf="password.touched == true && password.invalid == true" 
+                     style="color: crimson;font-size: small;">
+                    <div *ngIf = "password.errors.required">
+                        Password is Required
+                    </div>
+                    <div *ngIf = "password.errors.minlength">
+                        Wrong Password
+                    </div>
+    </div>
+
+
+
+   </div>
+            
+   <input type="submit" value="LogIn">
+   <div *ngIf="errMsg!=null">
+    <tr>User Credentials not found</tr>
+    </div>
+
+
+</form>

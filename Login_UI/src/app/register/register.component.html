@@ -1,0 +1,47 @@
+
+
+<form #myForm="ngForm" style="text-align: center;" (ngSubmit)=registerUser(myForm) [formGroup]="registerForm">
+
+    
+        <input type="text" name="name" ngModel placeholder="username" formControlName ="name"><br><br>
+    
+    <div *ngIf="name.touched == true && name.invalid == true" 
+                     style="color: crimson;font-size: small;">
+                    <div *ngIf = "name.errors.required">
+                        UserName is Required.
+                    </div>
+                    <div *ngIf = "name.errors.pattern">
+                        It should be 8 characters in length and also alphaNumeric.
+                    </div>
+    </div>
+    
+        <input type="password" name="password"  ngModel placeholder="password" formControlName ="password"><br><br>
+    
+        <div *ngIf="password.touched == true && password.invalid == true" 
+                     style="color: crimson;font-size: small;">
+                    <div *ngIf = "password.errors.required">
+                        Password is Required
+                    </div>
+                    <div *ngIf = "password.errors.pattern">
+                        It should be 6 characters in length and also alphaNumeric.
+                    </div>
+        </div>
+    
+        <select  name="role" ngModel formControlName ="role">
+            <option>select</option>
+            <option>User</option>
+            <option>Admin</option>
+        </select><br><br>
+    
+    <div *ngIf="role.touched == true && role.invalid == true" 
+        style="color: crimson;font-size: small;">
+        <div *ngIf = "role.errors.required">
+            Role is Required
+        </div>
+   
+</div>
+
+        <input type="submit" value="Register">
+    
+</form>
+
